@@ -1,1 +1,333 @@
-# testweb
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabSupply Co. | Penyedia Alat & Bahan Laboratorium</title>
+    <style>
+        /* --- RESET & BASIC STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ccff;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0, 64, 128, 0.8), rgba(0, 64, 128, 0.8)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #00ccff;
+            color: #004080;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #004080;
+        }
+
+        /* --- PRODUCTS SECTION --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .product-btn {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .product-btn:hover {
+            background-color: #002d59;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            background-color: #00ccff;
+            color: #004080;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #00b3e0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>LabSupply<span>.Co</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#kontak">Hubungi Kami</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Solusi Kebutuhan Laboratorium Anda</h2>
+        <p>Menyediakan alat peraga, bahan kimia murni, dan instrumen laboratorium berkualitas tinggi berstandar internasional.</p>
+        <a href="#produk" class="btn">Lihat Katalog</a>
+    </section>
+
+    <section id="produk" class="container">
+        <h2 class="section-title">Produk Unggulan Kami</h2>
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=500&q=80" alt="Alat Gelas Lab" class="product-img">
+                <div class="product-info">
+                    <h3>Alat Gelas (Glassware)</h3>
+                    <p>Beaker glass, erlenmeyer, dan tabung reaksi dengan bahan borosilikat tahan panas tinggi.</p>
+                    <a href="#" class="product-btn" onclick="pesanProduk('Alat Gelas')">Minta Penawaran</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1617155093730-a8bf47be792d?auto=format&fit=crop&w=500&q=80" alt="Bahan Kimia" class="product-img">
+                <div class="product-info">
+                    <h3>Bahan Kimia Analisis</h3>
+                    <p>Reagen dan bahan kimia murni (pro-analysis) untuk kebutuhan riset dan akurasi tinggi.</p>
+                    <a href="#" class="product-btn" onclick="pesanProduk('Bahan Kimia')">Minta Penawaran</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=500&q=80" alt="Mikroskop" class="product-img">
+                <div class="product-info">
+                    <h3>Mikroskop Digital</h3>
+                    <p>Mikroskop laboratorium dengan perbesaran tinggi dilengkapi kamera digital untuk dokumentasi.</p>
+                    <a href="#" class="product-btn" onclick="pesanProduk('Mikroskop Digital')">Minta Penawaran</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="kontak" class="container">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-form">
+            <form id="labContactForm">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap / Instansi</label>
+                    <input type="text" id="name" required placeholder="Contoh: Universitas / PT. Maju Jaya">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="nama@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan / Daftar Alat yang Dicari</label>
+                    <textarea id="message" rows="5" required placeholder="Tuliskan detail spesifikasi alat lab yang Anda butuhkan..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Kirim Permintaan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LabSupply Co. All Rights Reserved. Menyediakan Masa Depan Sains.</p>
+    </footer>
+
+    <script>
+        // Fungsi Interaktif Sederhana saat klik tombol produk
+        function pesanProduk(namaProduk) {
+            alert("Anda memilih: " + namaProduk + ". Silakan isi form di bawah untuk meminta penawaran harga resmi.");
+            document.getElementById('message').value = "Halo, saya tertarik dengan produk " + namaProduk + ". Mohon kirimkan katalog harga terbarunya.";
+            document.getElementById('kontak').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handler untuk Form Submit
+        document.getElementById('labContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nama = document.getElementById('name').value;
+            alert("Terima kasih " + nama + ", pesan Anda telah terkirim! Tim sales kami akan menghubungi Anda melalui email dalam 1x24 jam.");
+            this.reset();
+        });
+    </script>
+</body>
+</html>
